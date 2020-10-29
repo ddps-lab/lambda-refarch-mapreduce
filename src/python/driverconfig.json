@@ -1,7 +1,7 @@
 {
       "bucket": "big-data-benchmark",
       "prefix": "pavlo/text/1node/uservisits/",
-      "jobBucket": "ENTER YOUR BUCKET HERE",
+      "jobBucket": "mr-output1",
       "region": "us-east-1",
       "lambdaMemory": 1536,
       "concurrentLambdas": 1000,

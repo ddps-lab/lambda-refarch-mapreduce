@@ -1,4 +1,7 @@
 import boto3,json,botocore
+
+
+
 client = boto3.client('iam')
 
 trust_role = {
@@ -20,18 +23,18 @@ rp='biglambda_policy'
 
 try:
     response = client.create_role(RoleName=rn,AssumeRolePolicyDocument=json.dumps(trust_role))
-    print response['Role']['Arn']
-    print "Success: done creating role"
+    print(response['Role']['Arn'])
+    print("Success: done creating role")
 except botocore.exceptions.ClientError as e:
-    print "Error: {0}".format(e)
+    print("Error: {0}".format(e))
 
 try:
     with open('policy.json') as json_data:
         response = client.put_role_policy(RoleName=rn,PolicyName=rp,
             PolicyDocument=json.dumps(json.load(json_data))
         )
-        print "Success: done adding inline policy to role"
+        print ("Success: done adding inline policy to role")
 except botocore.exceptions.ClientError as e:
-    print "Error: {0}".format(e)
+    print ("Error: {0}".format(e))
 
 
