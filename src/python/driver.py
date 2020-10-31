@@ -54,7 +54,7 @@ def write_to_s3(bucket, key, data, metadata):
 
 # 실행 중인 job에 대한 정보를 json 으로 로컬에 저장
 def write_job_config(job_id, job_bucket, n_mappers, r_func, r_handler):
-    fname = "jobinfo.json"; 
+    fname = "jobinfo.json"
     with open(fname, 'w') as f:
         data = json.dumps({
             "jobId": job_id,
@@ -62,7 +62,7 @@ def write_job_config(job_id, job_bucket, n_mappers, r_func, r_handler):
             "mapCount": n_mappers,
             "reducerFunction": r_func,
             "reducerHandler": r_handler
-            }, indent=4);
+            }, indent=4)
         f.write(data)
 
 

@@ -63,7 +63,7 @@ def lambda_handler(event, context):
                 if srcIp not in output:
                     output[srcIp] = 0
                 output[srcIp] += float(data[3])
-            except Exception, e:
+            except Exception as e:
                 print(e)
 
     time_in_secs = (time.time() - start_time)
