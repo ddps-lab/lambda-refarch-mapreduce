@@ -34,7 +34,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603957827442</updated>
       <workItem from="1603957832521" duration="6602000" />
-      <workItem from="1603982858315" duration="6109000" />
+      <workItem from="1603982858315" duration="7372000" />
     </task>
     <servers>
       <GitHub url="https://github.com">
@@ -60,10 +60,10 @@
     </state>
     <state x="37" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877/1440.-517.2560.1417@0.23.1440.877" timestamp="1603957833713" />
     <state x="37" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1603982864367" />
-    <state x="757" y="236" width="683" height="486" key="find.popup" timestamp="1603984851924">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="3018" y="-173" width="683" height="729" key="find.popup" timestamp="1604134525800">
+      <screen x="1440" y="-517" width="2560" height="1417" />
     </state>
-    <state x="3018" y="-173" width="683" height="729" key="find.popup/0.23.1440.877/1440.-517.2560.1417@1440.-517.2560.1417" timestamp="1603961213524" />
+    <state x="3018" y="-173" width="683" height="729" key="find.popup/0.23.1440.877/1440.-517.2560.1417@1440.-517.2560.1417" timestamp="1604134525800" />
     <state x="757" y="236" width="683" height="486" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603984851924" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603984676498">
       <screen x="0" y="23" width="1440" height="877" />

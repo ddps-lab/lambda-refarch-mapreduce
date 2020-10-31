@@ -27,14 +27,15 @@ s3 = boto3.resource('s3')
 s3_client = boto3.client('s3')
 
 # Mapper의 결과가 작성될 S3 Bucket 위치
-TASK_MAPPER_PREFIX = "task/mapper/";
+TASK_MAPPER_PREFIX = "task/mapper/"
+
 
 # 주어진 bucket 위치 경로에 파일 이름이 key인 object와 data를 저장합니다.
 def write_to_s3(bucket, key, data, metadata):
     s3.Bucket(bucket).put_object(Key=key, Body=data, Metadata=metadata)
 
+
 def lambda_handler(event, context):
-    
     start_time = time.time()
 
     job_bucket = event['jobBucket']
@@ -42,7 +43,7 @@ def lambda_handler(event, context):
     src_keys = event['keys']
     job_id = event['jobId']
     mapper_id = event['mapperId']
-   
+
     output = {}
     line_count = 0
     err = ''
@@ -51,12 +52,12 @@ def lambda_handler(event, context):
 
     # 모든 key를 다운로드하고 Map을 처리합니다.
     for key in src_keys:
-        response = s3_client.get_object(Bucket=src_bucket,Key=key)
+        response = s3_client.get_object(Bucket=src_bucket, Key=key)
         contents = response['Body'].read()
-        
+        print(type(contents))
         # Map Function
         for line in contents.split('\n')[:-1]:
-            line_count +=1
+            line_count += 1
             try:
                 data = line.split(',')
                 srcIp = data[0][:8]
@@ -70,13 +71,12 @@ def lambda_handler(event, context):
 
     # Mapper의 결과를 전처리, 이후에 S3에 저장
     pret = [len(src_keys), line_count, time_in_secs, err]
-    mapper_fname = "%s/%s%s" % (job_id, TASK_MAPPER_PREFIX, mapper_id) 
+    mapper_fname = "%s/%s%s" % (job_id, TASK_MAPPER_PREFIX, mapper_id)
     metadata = {
-                    "linecount":  '%s' % line_count,
-                    "processingtime": '%s' % time_in_secs,
-                    "memoryUsage": '%s' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-               }
+        "linecount": '%s' % line_count,
+        "processingtime": '%s' % time_in_secs,
+        "memoryUsage": '%s' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    }
     print("metadata", metadata)
     write_to_s3(job_bucket, mapper_fname, json.dumps(output), metadata)
     return pret
-

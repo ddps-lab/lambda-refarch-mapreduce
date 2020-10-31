@@ -133,7 +133,7 @@ l_rc.add_lambda_permission(random.randint(1,1000), job_bucket)
 l_rc.create_s3_eventsource_notification(job_bucket)
 
 # 실행 중인 job에 대한 정보를 json 으로 S3에 저장
-j_key = job_id + "/jobdata";
+j_key = job_id + "/jobdata"
 data = json.dumps({
                 "mapCount": n_mappers, 
                 "totalS3Files": len(all_keys),
