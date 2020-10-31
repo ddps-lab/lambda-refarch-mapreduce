@@ -21,7 +21,7 @@ import os
 
 class LambdaManager(object):
     def __init__(self, l, s3, region, codepath, job_id, fname, handler, lmem=1024):
-        self.awslambda = l;
+        self.awslambda = l
         self.region = "us-east-1" if region is None else region
         self.s3 = s3
         self.codefile = codepath
@@ -47,7 +47,8 @@ class LambdaManager(object):
             Role=self.role,
             Runtime=runtime,
             Description=self.function_name,
-            MemorySize=self.memory
+            MemorySize=self.memory,
+            Timeout=self.timeout
         )
         self.function_arn = response['FunctionArn']
         print(response)
