@@ -59,6 +59,7 @@ def lambda_handler(event, context):
             line_count += 1
             try:
                 data = line.split(',')
+                print('data: ', data)
                 srcIp = data[0][:8]
                 if srcIp not in output:
                     output[srcIp] = 0
@@ -77,5 +78,7 @@ def lambda_handler(event, context):
         "memoryUsage": '%s' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     }
     print("metadata", metadata)
+
+    # 이 부분을 efs로 변경 시도 해야 할 듯 함.
     write_to_s3(job_bucket, mapper_fname, json.dumps(output), metadata)
     return pret
