@@ -54,7 +54,7 @@ def lambda_handler(event, context):
     for key in src_keys:
         response = s3_client.get_object(Bucket=src_bucket, Key=key)
         contents = response['Body'].read()
-        print(type(contents))
+        return type(contents)
         # Map Function
         for line in contents.split('\n')[:-1]:
             line_count += 1
