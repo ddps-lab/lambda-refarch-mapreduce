@@ -29,9 +29,9 @@ s3 = boto3.resource('s3')
 s3_client = boto3.client('s3')
 
 # Mapper의 결과가 저장된 S3 Bucket
-TASK_MAPPER_PREFIX = "task/mapper/";
+TASK_MAPPER_PREFIX = "task/mapper/"
 # Reducer의 결과를 저장할 S3 Bucket
-TASK_REDUCER_PREFIX = "task/reducer/";
+TASK_REDUCER_PREFIX = "task/reducer/"
 
 # 주어진 bucket 위치 경로에 파일 이름이 key인 object와 data를 저장합니다.
 def write_to_s3(bucket, key, data, metadata):
@@ -72,7 +72,7 @@ def lambda_handler(event, context):
 
     time_in_secs = (time.time() - start_time)
     pret = [len(reducer_keys), line_count, time_in_secs]
-    print "Reducer ouputput", pret
+    print ("Reducer output", pret)
 
     if n_reducers == 1:
         # 마지막 Reduce 단계의 file은 result로 저장합니다.

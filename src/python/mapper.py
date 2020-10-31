@@ -55,7 +55,7 @@ def lambda_handler(event, context):
         response = s3_client.get_object(Bucket=src_bucket, Key=key)
         contents = response['Body'].read()
         # Map Function
-        for line in contents.split('\n')[:-1]:
+        for line in contents.decode().split('\r\n')[:-1]:
             line_count += 1
             try:
                 data = line.split(',')
@@ -78,4 +78,4 @@ def lambda_handler(event, context):
     }
     print("metadata", metadata)
     write_to_s3(job_bucket, mapper_fname, json.dumps(output), metadata)
-    return hex(pret)
+    return pret
