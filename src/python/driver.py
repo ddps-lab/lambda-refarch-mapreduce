@@ -187,7 +187,7 @@ pool.join()
 print("all the mappers finished ...")
 
 # Mapper Lambda function 삭제
-l_mapper.delete_function()
+# l_mapper.delete_function()
 
 # 실제 Reduce 호출은 reducerCoordinator에서 실행
 
@@ -260,5 +260,5 @@ print("Total Latency: ", total_lambda_secs)
 print("Result Output Lines:", total_lines)
 
 # Reducer Lambda function 삭제
-l_reducer.delete_function()
-l_rc.delete_function()
+# l_reducer.delete_function()
+# l_rc.delete_function()
