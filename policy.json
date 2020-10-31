@@ -61,7 +61,7 @@
                 "s3:PutObjectVersionAcl"
             ],
             "Resource": [
-                "arn:aws:s3:::MY-S3-BUCKET/*"
+                "arn:aws:s3:::mr-lambda1/*"
             ]
         },
 

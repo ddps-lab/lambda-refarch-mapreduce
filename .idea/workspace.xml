@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ea040667-2ba7-41e0-9794-784d60efcdb7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jXkSyDaCW4M2qbOZ1WrBOO25mT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="tasks.servers" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea040667-2ba7-41e0-9794-784d60efcdb7" name="Default Changelist" comment="" />
+      <created>1603957827442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603957827442</updated>
+      <workItem from="1603957832521" duration="6602000" />
+      <workItem from="1603982858315" duration="3551000" />
+    </task>
+    <servers>
+      <GitHub url="https://github.com">
+        <option name="repoAuthor" value="manchann" />
+        <option name="repoName" value="lambda-refarch-mapreduce" />
+      </GitHub>
+    </servers>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603984757170">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1603984757170" />
+    <state x="1581" y="-170" key="SettingsEditor" timestamp="1604126777430">
+      <screen x="1440" y="-517" width="2560" height="1417" />
+    </state>
+    <state x="1581" y="-170" key="SettingsEditor/0.23.1440.877/1440.-517.2560.1417@1440.-517.2560.1417" timestamp="1604126777430" />
+    <state x="37" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1603982864367">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="37" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877/1440.-517.2560.1417@0.23.1440.877" timestamp="1603957833713" />
+    <state x="37" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1603982864367" />
+    <state x="757" y="236" width="683" height="486" key="find.popup" timestamp="1603984851924">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="3018" y="-173" width="683" height="729" key="find.popup/0.23.1440.877/1440.-517.2560.1417@1440.-517.2560.1417" timestamp="1603961213524" />
+    <state x="757" y="236" width="683" height="486" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603984851924" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603984676498">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1603984676498" />
+  </component>
+</project>
