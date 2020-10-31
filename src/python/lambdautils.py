@@ -37,7 +37,7 @@ class LambdaManager(object):
         '''
         AWS Lambda Function을 새로 생성하고 코드를 패키징한 zip 파일을 이용해 업데이트 합니다.
         '''
-        runtime = 'python3.6';
+        runtime = 'python3.6'
         response = self.awslambda.create_function(
             FunctionName=self.function_name,
             Code={
@@ -47,8 +47,7 @@ class LambdaManager(object):
             Role=self.role,
             Runtime=runtime,
             Description=self.function_name,
-            MemorySize=self.memory,
-            Timeout=self.timeout
+            MemorySize=self.memory
         )
         self.function_arn = response['FunctionArn']
         print(response)
