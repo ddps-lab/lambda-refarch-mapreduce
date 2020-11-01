@@ -20,7 +20,6 @@ import boto3
 import json
 import random
 import resource
-import StringIO
 import urllib2
 import time
 

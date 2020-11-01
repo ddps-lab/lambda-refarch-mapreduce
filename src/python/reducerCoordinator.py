@@ -20,7 +20,6 @@ import json
 import lambdautils
 import random
 import re
-import StringIO
 import time
 import urllib
 
@@ -151,7 +150,7 @@ def lambda_handler(event, context):
             # 모든 mapper가 완료되었다면, reducer를 시작합니다.
             stepInfo = get_reducer_state_info(files, job_id, bucket)
 
-            print "stepInfo", stepInfo
+            print("stepInfo", stepInfo)
 
             step_number = stepInfo[0]
             reducer_keys = stepInfo[1]
