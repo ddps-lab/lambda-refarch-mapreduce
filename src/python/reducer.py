@@ -20,7 +20,6 @@ import boto3
 import json
 import random
 import resource
-import urllib2
 import time
 
 # S3 session 생성
@@ -62,7 +61,7 @@ def lambda_handler(event, context):
         contents = response['Body'].read()
 
         try:
-            for srcIp, val in json.loads(contents).iteritems():
+            for srcIp, val in json.loads(contents).items():
                 line_count += 1
                 if srcIp not in results:
                     results[srcIp] = 0
