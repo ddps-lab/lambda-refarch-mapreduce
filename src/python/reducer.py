@@ -33,14 +33,15 @@ TASK_MAPPER_PREFIX = "task/mapper/"
 # Reducer의 결과를 저장할 S3 Bucket
 TASK_REDUCER_PREFIX = "task/reducer/"
 
+
 # 주어진 bucket 위치 경로에 파일 이름이 key인 object와 data를 저장합니다.
 def write_to_s3(bucket, key, data, metadata):
     s3.Bucket(bucket).put_object(Key=key, Body=data, Metadata=metadata)
 
+
 def lambda_handler(event, context):
-    
     start_time = time.time()
-    
+
     job_bucket = event['jobBucket']
     bucket = event['bucket']
     reducer_keys = event['keys']
@@ -48,7 +49,7 @@ def lambda_handler(event, context):
     r_id = event['reducerId']
     step_id = event['stepId']
     n_reducers = event['nReducers']
-    
+
     results = {}
     line_count = 0
 
@@ -63,16 +64,16 @@ def lambda_handler(event, context):
 
         try:
             for srcIp, val in json.loads(contents).iteritems():
-                line_count +=1
+                line_count += 1
                 if srcIp not in results:
                     results[srcIp] = 0
                 results[srcIp] += float(val)
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
     time_in_secs = (time.time() - start_time)
     pret = [len(reducer_keys), line_count, time_in_secs]
-    print ("Reducer output", pret)
+    print("Reducer output", pret)
 
     if n_reducers == 1:
         # 마지막 Reduce 단계의 file은 result로 저장합니다.
@@ -80,12 +81,12 @@ def lambda_handler(event, context):
     else:
         # 중간 Reduce 단계의 저장
         fname = "%s/%s%s/%s" % (job_id, TASK_REDUCER_PREFIX, step_id, r_id)
-    
+
     metadata = {
-                    "linecount":  '%s' % line_count,
-                    "processingtime": '%s' % time_in_secs,
-                    "memoryUsage": '%s' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-               }
+        "linecount": '%s' % line_count,
+        "processingtime": '%s' % time_in_secs,
+        "memoryUsage": '%s' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    }
 
     write_to_s3(job_bucket, fname, json.dumps(results), metadata)
     return pret

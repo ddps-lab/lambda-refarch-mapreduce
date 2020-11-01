@@ -126,7 +126,7 @@ def lambda_handler(event, context):
 
     # Job Bucket으로 이 Bucket으로부터 notification을 받습니다.
     bucket = event['Records'][0]['s3']['bucket']['name']
-
+    print('bucket_name: ', bucket)
     config = json.loads(open('./jobinfo.json', "r").read())
 
     job_id = config["jobId"]
@@ -140,11 +140,11 @@ def lambda_handler(event, context):
     files = s3_client.list_objects(Bucket=bucket, Prefix=job_id)["Contents"]
 
     if check_job_done(files) == True:
-        print "Job done!!! Check the result file"
+        print("Job done!!! Check the result file")
         return
     else:
         mapper_keys = get_mapper_files(files)
-        print "Mappers Done so far ", len(mapper_keys)
+        print("Mappers Done so far ", len(mapper_keys))
 
         if map_count == len(mapper_keys):
 
@@ -157,14 +157,14 @@ def lambda_handler(event, context):
             reducer_keys = stepInfo[1]
 
             if len(reducer_keys) == 0:
-                print "Still waiting to finish Reducer step ", step_number
+                print("Still waiting to finish Reducer step ", step_number)
                 return
 
             # 메타데이터(metadata)의 파일을 기반으로 Reduce의 배치 사이즈를 계산합니다.
             r_batch_size = get_reducer_batch_size(reducer_keys);
 
-            print "Starting the the reducer step", step_number
-            print "Batch Size", r_batch_size
+            print("Starting the the reducer step", step_number)
+            print("Batch Size", r_batch_size)
 
             r_batch_params = lambdautils.batch_creator(reducer_keys, r_batch_size);
 
@@ -189,10 +189,10 @@ def lambda_handler(event, context):
                         "reducerId": i
                     })
                 )
-                print resp
+                print(resp)
 
             # Reducer의 상태를 S3에 저장합니다.
             fname = "%s/reducerstate.%s" % (job_id, step_id)
             write_reducer_state(n_reducers, n_s3, bucket, fname)
         else:
-            print "Still waiting for all the mappers to finish .."
+            print("Still waiting for all the mappers to finish ..")
