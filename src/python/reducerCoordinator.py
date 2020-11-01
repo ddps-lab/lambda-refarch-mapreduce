@@ -125,7 +125,6 @@ def lambda_handler(event, context):
 
     # Job Bucket으로 이 Bucket으로부터 notification을 받습니다.
     bucket = event['Records'][0]['s3']['bucket']['name']
-    print('bucket_name: ', bucket)
     config = json.loads(open('./jobinfo.json', "r").read())
 
     job_id = config["jobId"]
