@@ -117,7 +117,7 @@ To remove all resources created by this example, do the following:
     $ python delete-biglambda-role.py
 
 ## Languages
-* Python 2.7 (active development)
+* Python 2.7 -> Python 3.6
 * Node.js
 
 The Python version is under active development and feature enhancement.
